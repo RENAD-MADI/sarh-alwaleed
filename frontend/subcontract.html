@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج عقد الإيجار بالباطن | صرح الوليد</title>
+    <meta name="description" content="تعبئة نموذج عقد الإيجار الموحد بالباطن إلكترونياً عبر صرح الوليد للخدمات العقارية.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="Assets/images/logo image.png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Assets/images/logo image.png" alt="logoImage">
+            </a>
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active"  href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#about">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contract">العقد الموحد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#instruction">التسويق العقاري</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contact"> تواصل معنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <button id="backToTopBtn" onclick="scrollToTop()">
+        <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!-- End navbar -->
+    <!-- Start Data -->
+    <div class="formData">
+            <div class="dataTop">
+                <h1 class="text-center">نموذج العقد الموحد بالباطن</h1>
+            </div>
+            <div class="dataBottom">
+                <div class="container">
+                    <div class="dataForm">
+                        <form id="ownerForm">
+                            <div class="row">
+                                <h3 class="mb-3 fw-bold">بيانات العقد</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="contractMainNum" class="mb-2">رقم سجل العقد الأساسي:</label> 
+                                    <input type="number" id="contractMainNum" name="contractMainNum" class="form-control mb-2" placeholder="رقم سجل العقد الأساسي " required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contractNum" class="mb-2">رقم سجل العقد:</label>
+                                    <input type="number" id="contractNum" name="contractNum" class="form-control mb-2" placeholder="رقم سجل العقد: " required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="contractType" class="mb-2">نوع العقد:</label>
+                                    <input type="text" id="contractType" name="contractType" class="form-control mb-2" placeholder=" نوع العقد:  " required>
+                                </div>
+                                    <div class="col-md-2">
+                                        <label for="contractDateDay" class="mb-2">تاريخ  ابرام العقد:</label>
+                                        <select id="contractDateDay" name="contractDateDay" class="form-control mb-2" required>
+                                            <option value="">اختر اليوم</option>
+                                            <script>
+                                                for (let i = 1; i <= 31; i++) {
+                                                    document.write(`<option value="${i}">${i}</option>`);
+                                                }
+                                            </script>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="contractDateMonth" class="mb-2">الشهر:</label>
+                                        <select id="contractDateMonth" name="contractDateMonth" class="form-control mb-2" required>
+                                            <option value="">اختر الشهر</option>
+                                            <script>
+                                                for (let i = 1; i <= 12; i++) {
+                                                    document.write(`<option value="${i}">${i}</option>`);
+                                                }
+                                            </script>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="contractDateYear" class="mb-2">السنة:</label>
+                                        <select id="contractDateYear" name="contractDateYear" class="form-control mb-2" required>
+                                            <option value="">اختر السنة</option>
+                                            <script>
+                                                const currentyear = new Date().getFullYear();
+                                                for (let i = 1900; i <= currentyear; i++) {
+                                                    document.write(`<option value="${i}">${i}</option>`);
+                                                }
+                                            </script>
+                                        </select>
+                                    </div>
+                    
+                            
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="contractPlace" class="mb-2"> مكان إبرام العقد :</label>
+                                    <input type="text" id="contractPlace" name="contractPlace" class="form-control mb-2" placeholder="مكان إبرام العقد   " required>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="contractStartDateDay" class="mb-2">تاريخ  بداية مدة الايجار  :</label>
+                                    <select id="contractStartDateDay" name="contractStartDateDay" class="form-control mb-2" required>
+                                        <option value="">اختر اليوم</option>
+                                        <script>
+                                            for (let i = 1; i <= 31; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="contractStartDateMonth" class="mb-2">الشهر:</label>
+                                    <select id="contractStartDateMonth" name="contractStartDateMonth" class="form-control mb-2" required>
+                                        <option value="">اختر الشهر</option>
+                                        <script>
+                                            for (let i = 1; i <= 12; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="contractStartDateYear" class="mb-2">السنة:</label>
+                                    <select id="contractStartDateYear" name="contractStartDateYear" class="form-control mb-2" required>
+                                        <option value="">اختر السنة</option>
+                                        <script>
+                                            const currentyearr = new Date().getFullYear();
+                                            for (let i = 1900; i <= currentyearr; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+    
+                            </div>  
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="contractEndDateDay" class="mb-2">تاريخ  نهاية مدة الايجار  :</label>
+                                    <select id="contractEndDateDay" name="contractEndDateDay" class="form-control mb-2" required>
+                                        <option value="">اختر اليوم</option>
+                                        <script>
+                                            for (let i = 1; i <= 31; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="contractEndDateMonth" class="mb-2">الشهر:</label>
+                                    <select id="contractEndDateMonth" name="contractEndDateMonth" class="form-control mb-2" required>
+                                        <option value="">اختر الشهر</option>
+                                        <script>
+                                            for (let i = 1; i <= 12; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="contractEndDateYear" class="mb-2">السنة:</label>
+                                    <select id="contractEndDateYear" name="contractEndDateYear" class="form-control mb-2" required>
+                                        <option value="">اختر السنة</option>
+                                        <script>
+                                            const currentyearrr = new Date().getFullYear();
+                                            for (let i = 1900; i <= currentyearrr; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+    
+                            </div>  
+                            <div class="row">
+                                <h3 class="mb-3 fw-bold">بيانات المؤجر</h3>
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="ownerName" class="mb-2">الاسم :</label>
+                                    <input type="text" id="ownerName" name="ownerName" class="form-control mb-2" placeholder="الاسم  " required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ownerNationality" class="mb-2">الجنسية : </label>
+                                    <input type="text" id="ownerNationality" name="ownerNationality" class="form-control mb-2" placeholder="الجنسية  " required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="ownerID" class="mb-2">رقم الهوية :  </label>
+                                    <input type="number" id="ownerID" name="ownerID" class="form-control mb-2" placeholder=" رقم الهوية " required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ownerIdType" class="mb-2"> نوع الهوية : </label>
+                                    <input type="text" id="ownerIdType" name="ownerIdType" class="form-control mb-2" placeholder="نوع الهوية  " required>
+                                </div>
+                            
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="ownerPhone" class="mb-2">رقم الجوال:</label>
+                                    <input type="text" id="ownerPhone" name="ownerPhone" class="form-control mb-2" placeholder="رقم الجوال" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ownerEmail" class="mb-2">البريد الإلكتروني:</label>
+                                    <input type="email" id="ownerEmail" name="ownerEmail" class="form-control mb-2" placeholder="البريد الإلكتروني" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <h3 class="mb-3 fw-bold">بيانات المستأجر</h3>
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="clientName" class="mb-2">الاسم :</label>
+                                    <input type="text" id="clientName" name="clientName" class="form-control mb-2" placeholder="الاسم  " required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="clientNationality" class="mb-2">الجنسية : </label>
+                                    <input type="text" id="clientNationality" name="clientNationality" class="form-control mb-2" placeholder="الجنسية  " required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="clientID" class="mb-2">رقم الهوية :  </label>
+                                    <input type="number" id="clientID" name="clientID" class="form-control mb-2" placeholder=" رقم الهوية " required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="clientIdType" class="mb-2"> نوع الهوية : </label>
+                                    <input type="text" id="clientIdType" name="clientIdType" class="form-control mb-2" placeholder="نوع الهوية  " required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="clientPhone" class="mb-2">رقم الجوال:</label>
+                                    <input type="text" id="clientPhone" name="clientPhone" class="form-control mb-2" placeholder="رقم الجوال" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="clientEmail" class="mb-2">البريد الإلكتروني:</label>
+                                    <input type="email" id="clientEmail" name="clientEmail" class="form-control mb-2" placeholder="البريد الإلكتروني" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn d-block m-auto mt-4 text-white" style="width: fit-content;" > التالي</button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            
+    </div>
+    <!-- End Data  -->
+<!-- Start Footer  -->
+<div class="footer">
+    <div class="container">
+        <div class="info d-flex justify-content-center align-items-center g-5 ">
+            <div class="logo m-0">
+                <img src="Assets/images/logo image.png" alt="logoImage">
+            </div>
+            <div class="data">
+                <h2 class="text-white m-0 fw-bold">تواصل معنا</h2>
+                <div class="icon d-flex gap-3 mt-3">
+                    <a href="https://wa.me/+966559969664" class="text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/sarh_alwaleed?igsh=ZmpkaXMxdXl6Nmc%3D&utm_source=qr" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.threads.net/@sarh_alwaleed?xmt=AQGzQYYwrqSEl9rpA-j7g7T214IaaPg8GYN-mJGHjZrkhIA" class="text-white"><i class="fa-brands fa-threads"></i></a>
+                    <a href="https://x.com/sarh_alwaleed" class="text-white"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://snapchat.com/t/EJoI8s0J" class="text-white"><i class="fa-brands fa-snapchat"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="fs-6 text-white fw-bold text-center"  ><span id="footing">2024 &copy; صرح الوليد للخدمات تاعقارية | حقوق النشر محفوظه لدي   </span> <a href="https://wa.me/+966548720537" class="fw-bold" style="color:  #fbde04;">IT.RENADMADI</a><i class="fa-brands fa-gratipay fa-beat-fade mx-2 fs-5 text-white"></i></p> 
+
+    </div>
+ </div>
+<!-- End Footer -->
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/subcontract.js"></script>
+</body>
+</html>

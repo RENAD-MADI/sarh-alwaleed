@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج العقد السكني الموحد | صرح الوليد</title>
+    <meta name="description" content="تعبئة نموذج عقد الإيجار السكني الموحد إلكترونياً عبر صرح الوليد للخدمات العقارية.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="Assets/images/logo image.png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Assets/images/logo image.png" alt="logoImage">
+            </a>
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active"  href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#about">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contract">العقد الموحد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#instruction">التسويق العقاري</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contact">تواصل معنا </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <button id="backToTopBtn" onclick="scrollToTop()">
+        <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!-- End navbar -->
+    <!-- Start Data -->
+    <div class="formData">
+            <div class="dataTop">
+                <h1 class="text-center">نموذج العقد السكني</h1>
+            </div>
+            <div class="dataBottom">
+                <div class="container">
+                    <div class="dataForm">
+                        <form id="ownerForm">
+                            <div class="row">
+                                <h3 class="mb-3 fw-bold">بيانات المالك</h3>
+                                <div class="col-md-6">
+                                    <label for="name" class="mb-2">اسم المالك:</label>
+                                    <input type="text" id="name" name="ownerName" class="form-control mb-2" placeholder="اسم المالك" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="num" class="mb-2">رقم الهوية:</label>
+                                    <input type="number" id="num" name="ownerID" class="form-control mb-2" placeholder="رقم الهوية" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="day" class="mb-2">تاريخ الميلاد</label>
+                                    <select id="day" name="dayBD" class="form-control mb-2" required>
+                                        <option value="">اختر اليوم</option>
+                                        <script>
+                                            for (let i = 1; i <= 31; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="month" class="mb-2">الشهر</label>
+                                    <select id="month" name="monthBD" class="form-control mb-2" required>
+                                        <option value="">اختر الشهر</option>
+                                        <script>
+                                            for (let i = 1; i <= 12; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="year" class="mb-2">السنة</label>
+                                    <select id="year" name="yearBD" class="form-control mb-2" required>
+                                        <option value="">اختر السنة</option>
+                                        <script>
+                                            const currentYear = new Date().getFullYear();
+                                            for (let i = 1900; i <= currentYear; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="ownerPhone" class="mb-2">رقم الجوال (المسجل في أبشر):</label>
+                                    <input type="text" id="ownerPhone" name="ownerPhone" class="form-control mb-2" placeholder="رقم الجوال" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Email" class="mb-2">البريد الإلكتروني:</label>
+                                    <input type="email" id="Email" name="email" class="form-control mb-2" placeholder="البريد الإلكتروني" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="bank" class="mb-2">اسم البنك:</label>
+                                    <input type="text" id="bank" name="bankName" class="form-control mb-2" placeholder="اسم البنك" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="IBAN" class="mb-2">رقم الآيبان:</label>
+                                    <input type="text" id="IBAN" name="IBAN" class="form-control mb-2" placeholder="رقم الآيبان" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="build" class="mb-2">العنوان الوطني:</label>
+                                    <input type="number" id="build" name="ownerBuildingNum" class="form-control mb-2" placeholder=" العنوان الوطني" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="postt" class="mb-2">الرمز البريدي:</label>
+                                    <input type="number" id="postt" name="postalCode" class="form-control mb-2" placeholder="الرمز البريدي" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="extera" class="mb-2">الرمز الإضافي:</label>
+                                    <input type="number" id="extera" name="addCode" class="form-control mb-2" placeholder="الرمز الإضافي" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="alhayi" class="mb-2">الحي:</label>
+                                    <input type="text" id="alhayi" name="district" class="form-control mb-2" placeholder="الحي" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="streetName" class="mb-2">اسم الشارع:</label>
+                                    <input type="text" id="streetName" name="streetName" class="form-control mb-2" placeholder="اسم الشارع" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="sakNumber" class="mb-2">رقم الصك :</label>
+                                    <input type="number" id="sakNumber" name="sakNumber" class="form-control mb-2" placeholder="رقم الصك" required>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="day" class="mb-2">تاريخ الصك:</label>
+                                    <select id="day" name="sakDay" class="form-control mb-2" required>
+                                        <option value="">اختر اليوم</option>
+                                        <script>
+                                            for (let i = 1; i <= 31; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="month" class="mb-2">الشهر:</label>
+                                    <select id="month" name="sakMonth" class="form-control mb-2" required>
+                                        <option value="">اختر الشهر</option>
+                                        <script>
+                                            for (let i = 1; i <= 12; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="year" class="mb-2">السنة:</label>
+                                    <select id="year" name="sakYear" class="form-control mb-2" required>
+                                        <option value="">اختر السنة</option>
+                                        <script>
+                                            const currentyear = new Date().getFullYear();
+                                            for (let i = 1900; i <= currentyear; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="floorNum" class="mb-2">عدد أدوار المبني :</label>
+                                    <input type="number" id="floorNum" name="floorNum" class="form-control mb-2" placeholder="عدد أدوار المبني " required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="aprtmentsNum" class="mb-2">عدد الشقق  :</label>
+                                    <input type="number" id="aprtmentsNum" name="aprtmentsNum" class="form-control mb-2" placeholder="عدد  الشقق " required>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="mawaqfNum" class="mb-2">عدد  المواقف :</label>
+                                    <input type="number" id="mawaqfNum" name="mawaqfNum" class="form-control mb-2" placeholder="عدد المواقف  " required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="elevatorNum" class="mb-2">عدد المصاعد  :</label>
+                                    <input type="number" id="elevatorNum" name="elevatorNum" class="form-control mb-2" placeholder="عدد  المصاعد " required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="buildingName" class="mb-2">اسم العقار   :</label>
+                                    <input type="text" id="buildingName" name="buildingName" class="form-control mb-2" placeholder="اسم العقار   " required>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="buildingDay" class="mb-2">تاريخ  الانشاء:</label>
+                                    <select id="buildingDay" name="buildingDay" class="form-control mb-2" required>
+                                        <option value="">اختر اليوم</option>
+                                        <script>
+                                            for (let i = 1; i <= 31; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="buildingMonth" class="mb-2">الشهر:</label>
+                                    <select id="buildingMonth" name="buildingMonth" class="form-control mb-2" required>
+                                        <option value="">اختر الشهر</option>
+                                        <script>
+                                            for (let i = 1; i <= 12; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="buildingYear" class="mb-2">السنة:</label>
+                                    <select id="buildingYear" name="buildingYear" class="form-control mb-2" required>
+                                        <option value="">اختر السنة</option>
+                                        <script>
+                                            const currentyearr = new Date().getFullYear();
+                                            for (let i = 1900; i <= currentyearr; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                            </div>
+                            <h3 class="mt-4 mb-4">في حال وجود وكيل شرعي للمالك</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="ownerAgencyNum" class="mb-2">رقم الوكالة:</label>
+                                    <input type="number" id="ownerAgencyNum" name="ownerAgencyNum" class="form-control mb-2" placeholder="رقم الوكالة" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ownerAgencyDate" class="mb-2">تاريخها:</label>
+                                    <input type="date" id="ownerAgencyDate" name="ownerAgencyDate" class="form-control mb-2" placeholder="تاريخها" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="ownerAgentName" class="mb-2">اسم الوكيل:</label>
+                                    <input type="text" id="ownerAgentName" name="ownerAgentName" class="form-control mb-2" placeholder="اسم الوكيل" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ownerAgencyPhone" class="mb-2">رقم الجوال (المسجل في أبشر):</label>
+                                    <input type="text" id="ownerAgencyPhone" name="ownerAgencyPhone" class="form-control mb-2" placeholder="رقم الجوال" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="ownerAgencyDay" class="mb-2">تاريخ الميلاد:</label>
+                                    <select id="ownerAgencyDay" name="ownerAgencyDay" class="form-control mb-2" required>
+                                        <option value="">اختر اليوم</option>
+                                        <script>
+                                            for (let i = 1; i <= 31; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="ownerAgencyMonth" class="mb-2">الشهر:</label>
+                                    <select id="ownerAgencyMonth" name="ownerAgencyMonth" class="form-control mb-2" required>
+                                        <option value="">اختر الشهر</option>
+                                        <script>
+                                            for (let i = 1; i <= 12; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="ownerAgencyYear" class="mb-2">السنة:</label>
+                                    <select id="ownerAgencyYear" name="ownerAgencyYear" class="form-control mb-2" required>
+                                        <option value="">اختر السنة</option>
+                                        <script>
+                                            const currentYearr = new Date().getFullYear();
+                                            for (let i = 1900; i <= currentYearr; i++) {
+                                                document.write(`<option value="${i}">${i}</option>`);
+                                            }
+                                        </script>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="ownerAgencyEmail" class="mb-2">البريد الإلكتروني:</label>
+                                    <input type="email" id="ownerAgencyEmail" name="ownerAgencyEmail" class="form-control mb-2" placeholder="البريد الإلكتروني" required>
+                                </div>
+                            </div>
+                            <button class="btn d-block m-auto mt-5 text-white fs-5" type="submit" id="nextButton1"> التالي</button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            
+    </div>
+    <!-- End Data  -->
+<!-- Start Footer  -->
+<div class="footer">
+    <div class="container">
+        <div class="info d-flex justify-content-center align-items-center g-5 ">
+            <div class="logo m-0">
+                <img src="Assets/images/logo image.png" alt="logoImage">
+            </div>
+            <div class="data">
+                <h2 class="text-white m-0 fw-bold">تواصل معنا</h2>
+                <div class="icon d-flex gap-3 mt-3">
+                    <a href="https://wa.me/+966559969664" class="text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/sarh_alwaleed?igsh=ZmpkaXMxdXl6Nmc%3D&utm_source=qr" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.threads.net/@sarh_alwaleed?xmt=AQGzQYYwrqSEl9rpA-j7g7T214IaaPg8GYN-mJGHjZrkhIA" class="text-white"><i class="fa-brands fa-threads"></i></a>
+                    <a href="https://x.com/sarh_alwaleed" class="text-white"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://snapchat.com/t/EJoI8s0J" class="text-white"><i class="fa-brands fa-snapchat"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="fs-6 text-white fw-bold text-center"  ><span id="footing">2024 &copy; صرح الوليد للخدمات العقارية | حقوق النشر محفوظه لدي   </span> <a href="https://wa.me/+966548720537" class="fw-bold" style="color:  #fbde04;">IT.RENADMADI</a><i class="fa-brands fa-gratipay fa-beat-fade mx-2 fs-5 text-white"></i></p> 
+
+    </div>
+ </div>
+<!-- End Footer -->
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contract1.js"></script>
+</body>
+</html>

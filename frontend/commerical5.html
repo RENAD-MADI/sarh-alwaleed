@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>العقد التجاري - الأذونات والالتزامات | صرح الوليد</title>
+    <meta name="description" content="الخطوة الخامسة من نموذج العقد التجاري الموحد.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="Assets/images/logo image.png">
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Assets/images/logo image.png" alt="logoImage">
+            </a>
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active"  href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#about">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contract">العقد الموحد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#instruction">التسويق العقاري</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contact"> تواصل معنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <button id="backToTopBtn" onclick="scrollToTop()">
+      <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!-- End navbar -->
+    <!-- Start Data -->
+    <div class="formData">
+        <div class="dataTop">
+            <h1 class="text-center">الإلتزامات الإضافية  </h1>
+        </div>
+        <div class="dataBottom">
+            <div class="container">
+            <form class="dataForm" id="dataForm">
+                <h1>الالتزامات الإضافية</h1>
+                <table class="table table-bordered" border="1" cellpadding="0">
+                    <tr>
+                        <td>م</td>
+                        <td>الإلتزام(الرجاء الاختيار بنعم حتى يتم اضافة لالتزام للعقد في حالة الرغبة)</td>
+                        <td>المؤجر</td>
+                        <td>المستأجر</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>يلتزم المستأجر بالغاء رخصة البلدية الخاصة بالوحدة الايجارية عند الانتهاء أو انهاء العقد ؟</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ1"  name="addcommitmentQ1">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>يلتزم المستاجر بدفع قيمة الاجرة في المواعيد المتفق عليها ؟</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ2"  name="addcommitmentQ5">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>يلتزم المستأجر بالتقييد بمساحة ومواصفات اللوحة الخاصة بالوحدة الايجارية والمحددة في البند رقم (8) من هذا العقد </td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ3"  name="addcommitmentQ3">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>يلتزم المؤجر باجراء الترميمات المستعجلة التي تكون ضرورية لحفظ الوحدات الايجارية و ما يتطلبه ذلك من فحوصات استباقية لازمة </td>
+                        <td>
+                            <select id="addcommitmentQ4"  name="addcommitmentQ4">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>يلتزم المستأجر ان يفتتح ويباشر نشاطه التجاري خلال مدة لا تتجاوز ال 60 يوما من تاريخ العقد وفي حال انتهاء هذه المدة وعدم تجاوب المستأجر خلال 30 يوما يحق للمؤجر فسخ العقد من جهته دون الحاجة الى انذار او حكم قضائي مع المحافظة على حقوق المستاجر بباقي قيمة العقد المدفوع بعد خصم العربون والسعي وقيمة الايجار والمصاريف  الخدمات العامة من تاريخ بداية الايجار الى تاريخ الفسخ والاخلاء.</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ5"  name="addcommitmentQ5">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>يلتزم المستأجر بتسليم الوحدات الإيجارية  للمؤجر عند انتهاء مدة ايجار العقد </td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ6"  name="addcommitmentQ6">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>يلتزم المستأجر باستعمال الوحدات الإيجارية الإستعمال المعتاد له طبقا للأنظمة والأعراف والتقاليد في المملكة العربية السعودية وتحمل جميع الجزاءات التي قد تفرض عليه من الجهات المختصة  </td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ7"  name="addcommitmentQ7">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>يلتزم المستأجر بالمحافضة على الاجزاء والمرافق المشتركة التابعة للعقار المشتمل على الوحدات الايجارية مثل دورات المياه المشتركة و الأسطح ومخارج الطوارئ والمصاعد والسلالم والممرات وغيرها</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ8"  name="addcommitmentQ8">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>يلتزم المؤجر بمسؤوليته اثناء مدة الايجار عن اعمال صيانة العقار وهي الصيانة المتعلقة بما يؤثر على سلامة المبنى او ماكان سببه غير ظاهر حال الاستئجار وعن اصلاح اي خلل يؤثر في إستيفاء المنفعة المقصودة مثل : تهريب المياه داخل الحيطان او الاسقف ما لم يكن ذلك بسبب سوء الاستعمال بموجب تقرير الدفاع المدني او من تخوله الجهات الحكومية المعتمدة ،، هبوط في في الاسقف او التصدعات الجوهرية في البناء بموجب ما ذكر من تقارير.</td>
+                        <td>
+                            <select id="addcommitmentQ9"  name="addcommitmentQ9">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>يلتزم المستأجر بدفع جميع تكاليف الصيانة الاستهلاكية المعتادة المترتبة على الانتفاع بالوحدات الايجارية فيما عدا اعمال الصيانة المفصلة في المادة السابقة</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ10"  name="addcommitmentQ10">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>في حال انتقال ملكية العقار او الوحدات الايجارية لمالك اخر فان عقد المستأجر باق ولا يفسخ الا بانتهاء مدته</td>
+                        <td>
+                            <select id="addcommitmentQ11"  name="addcommitmentQ11">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>يلتزم المستأجر باخذ الاحتياطات اللازمة لمنع تعرض الوحدة الايجارية وكافة ملحقاتها والمتواجدين فيها سواء من تابعيه او عملائه او زائرية لاي اضرار كان بسبب من اسباب القوة القاهرة او الناتج عن انقطاع الكهرباء والمياه أو أجهزة التكييف أو أي خلل بالتجهيزات الميكانيكية أو الكهربائية أو أي عملية احتيال أو نصب أو سرقة وخلافه</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ12"  name="addcommitmentQ12">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>يلتزم المستأجر بعدم اغلاق الوحدة الايجارية للجرد وخلافة لاكثر من (30) يوما متواصلا أو (60) يوما متقطعا طوال السنة الايجارية</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ13"  name="addcommitmentQ13">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>يلتزم المستأجر بعدم إزالة التحسينات أو أعمال الديكور الثابتة والتي لا يمكن نقلها أو أي إضافة مقامة على الوحدات الإيجارية أو تسليم الوحدة بالحالة التي تسلمها ؟ (الرجاء الاختيار إبقاء او ازالة ).</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ14"  name="addcommitmentQ14">
+                                <option selected  value="">اختر</option>
+                                <option value="ابقاء">ابقاء</option>
+                                <option  value="ازالة">ازالة</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>يلتزم المستاجر بالحصول على بوليصة تأمين شاملة تعاونية ( موافقة لأحكام الشريعة الإسلامية ) للوحدة الإيجارية وكافة الممتلكات والبضائع والديكور ضد جميع الأخطار وتسليم نسخة منها وتجديدها للمؤجر</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ15"  name="addcommitmentQ15">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>يلتزم المستاجر بالمحافظة على جميع التجهيزات الميكانيكية والكهربائية ومراعاة الأحمال الكهربائية في المجمع وغيرها من التجهيزات التي وضعها الموجر في الوحدة الايجارية و العقار</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ16"  name="addcommitmentQ16">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td> يلتزم المستأجر بتزويد المؤجر بما يثبت تسجيل العلامة التجارية او حقة او تخويلة بيع منتجات العلامة التجارية للاسم التجاري للمستخدم</td>
+                        <td></td>
+                        <td>
+                            <select id="addcommitmentQ17"  name="addcommitmentQ17">
+                                <option selected  value="">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>يلتزم المؤجر بتغيير محل الوحدة الإيجارية في حال وجود ترميمات من شأنها أن توقف عمل الوحدة الإيجارية جزئيا أو كليا لمحل اخر داخل العقار بنفس مواصفات المحل المتعاقد عليه بعد موافقة المستأجر عبر وسائل الإخطار الواردة في المادة الخامسة عشر</td>
+                        <td>
+                            <select id="addcommitmentQ18"  name="addcommitmentQ18">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>يلتزم المؤجر بدفع مبلغ ( ) أجرة يومية في حال تأخره في تسليم الوحدات الإيجارية للمستأجر بعد إكمال الإجراءات الرسمية للتعاقد المستوفية لجميع بيانات العقار الواردة في البند رقم ( 6 ) وبيانات الوحدة الإيجارية في البند رقم ( ۷ )</td>
+                        <td>
+                            <select id="addcommitmentQ19"  name="addcommitmentQ19">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>يلتزم المستأجر بدفع مبلغ ( ) أجرة يومية في حال تأخره في إفتتاح الوحدة الإيجارية بعد إكمال الإجراءات الرسمية للتعاقد واستيفاء جميع بيانات العقار الواردة في البند رقم ( 6 ) وبيانات الوحدة الإيجارية في البند رقم ( ۷ )</td>                                    <td></td>
+                        <td>
+                            <select id="addcommitmentQ20"  name="addcommitmentQ20">
+                                <option selected  value="اختر">اختر</option>
+                                <option value="نعم">نعم</option>
+                                <option  value="لا">لا</option>
+                            </select>
+                        </td>
+                </table>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                        <button
+                            type="submit"
+                            class="btn btn-primary mt-3 text-white border-0"
+                        >
+                            التالي
+                        </button>
+                        <button
+                            class="btn d-block m-auto mt-2 text-white"
+                            type="submit"
+                        >
+                            <a href="commerical4.html">الرجوع</a>
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Data  -->
+    <!-- Start Footer  -->
+    <div class="footer">
+        <div class="container">
+            <div class="info d-flex justify-content-center align-items-center g-5 ">
+                <div class="logo m-0">
+                    <img src="Assets/images/logo image.png" alt="logoImage">
+                </div>
+                <div class="data">
+                    <h2 class="text-white m-0 fw-bold">تواصل معنا</h2>
+                    <div class="icon d-flex gap-3 mt-3">
+                        <a href="https://wa.me/+966559969664" class="text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/sarh_alwaleed?igsh=ZmpkaXMxdXl6Nmc%3D&utm_source=qr" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.threads.net/@sarh_alwaleed?xmt=AQGzQYYwrqSEl9rpA-j7g7T214IaaPg8GYN-mJGHjZrkhIA" class="text-white"><i class="fa-brands fa-threads"></i></a>
+                        <a href="https://x.com/sarh_alwaleed" class="text-white"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://snapchat.com/t/EJoI8s0J" class="text-white"><i class="fa-brands fa-snapchat"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="fs-6 text-white fw-bold text-center"  ><span id="footing">2024 &copy; صرح الوليد للخدمات العقاريه | حقوق النشر محفوظه لدي   </span> <a href="https://wa.me/+966548720537" class="fw-bold" style="color:  #fbde04;">IT.RENADMADI</a><i class="fa-brands fa-gratipay fa-beat-fade mx-2 fs-5 text-white"></i></p> 
+
+        </div>
+     </div>
+    <!-- End Footer -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/commerical5.js"></script>
+  </body>
+</html>

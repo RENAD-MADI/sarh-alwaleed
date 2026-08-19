@@ -1,0 +1,19 @@
+# Normalise line endings in the repository; check out native on each platform.
+* text=auto
+
+*.js   text eol=lf
+*.mjs  text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css  text eol=lf
+*.md   text eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.pdf  binary
+*.docx binary
+*.mp4  binary
+*.ttf  binary
+*.woff2 binary

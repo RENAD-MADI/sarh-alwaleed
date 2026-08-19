@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات العقد التجاري   </title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="Assets/images/logo image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body style="background-color: #eee;">
+<header class="bg-dark text-white py-3 mb-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <a href="index.html" class="d-flex align-items-center gap-2 text-white text-decoration-none">
+            <img src="Assets/images/logo image.png" alt="شعار صرح الوليد" style="height: 40px; width: auto;">
+            <span class="fw-bold">لوحة التحكم</span>
+        </a>
+        <nav aria-label="أقسام لوحة التحكم">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="admin.html">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Contractdashboard.html">العقود السكنية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="commericaldashboard.html">العقود التجارية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="subcontractdasboard.html">عقود الباطن</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="messages.html">الرسائل</a></li>
+            </ul>
+        </nav>
+        <div class="d-flex align-items-center gap-3">
+            <span id="currentUser" class="small"></span>
+            <button type="button" id="logoutButton" class="btn btn-outline-light btn-sm">تسجيل الخروج</button>
+        </div>
+    </div>
+</header>
+<div class="container"><div id="dashboardStatus" hidden></div></div>
+
+    <div class="mt-5 w-75 m-auto">
+        <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المالك</h1>
+        <table class="table text-center table-hover p-5" border="1">
+          <thead >
+            <tr class="table-active">
+              <th> رقم الهوية</th>
+              <th>تاريخ الميلاد</th>
+              <th>الشهر </th>
+              <th>السنة</th>
+              <th>رقم الجوال</th>
+              <th>البريد الالكتروني</th>
+              <th> اسم البنك</th>
+              <th> رقم الايبان </th>
+              <th> العنوان الوطني  </th>
+              <th>الرمز البريدي  </th>
+              <th> الرمز الإضافي</th>
+              <th>الحي </th>
+              <th> اسم الشارع</th>
+            </tr>
+          </thead>
+          <tbody id="data1"></tbody>
+        </table>
+    </div>
+
+    <div class="mt-5 w-75 m-auto">
+      <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات العقار</h1>
+      <table class="table text-center table-hover p-5" border="1">
+        <thead >
+          <tr class="table-active" >
+          
+            <th> العنوان الوطني للعقار </th>
+            <th>الرمز البريدي  </th>
+            <th> الرمز الإضافي</th>
+            <th>الحي </th>
+            <th> اسم الشارع</th>
+            <th> عدد أدوار  </th>
+            <th> عدد الوحدات الإيجارية</th>
+            <th>  رقم الصك</th>
+            <th> تاريخ الصك</th>
+            <th>الشهر </th>
+            <th> السنة</th>
+          </tr>
+        </thead>
+        <tbody id="data2"></tbody>
+      </table>
+  </div>
+  <div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات العقار</h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active" >
+            <th> نوع العقار   </th>
+            <th> استخدام العقار  </th>
+            <th> عدد المواقف  </th>
+            <th> اسم العقار </th>
+            <th> تاريخ الانشاء </th>
+            <th>  الشهر</th>
+            <th> السنة  </th>
+        </tr>
+      </thead>
+      <tbody id="data3"></tbody>
+    </table>
+</div>
+
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">في حالة وجود وكيل شرعي للمالك </h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم الوكالة    </th>
+        <th> تاريخها </th>
+        <th> اسم الوكيل </th>
+        <th> رقم الجوال  </th>
+        <th>تاريخ الميلاد </th>
+        <th>  الشهر</th>
+        <th> السنة  </th>
+        <th>البريد الإلكتروني </th>
+      </tr>
+    </thead>
+    <tbody id="data4"></tbody>
+  </table>
+</div>
+
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المستأجر</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th> الإسم التجاري </th>
+        <th>رقم السجل التجاري </th>
+        <th> انتهاء السجل التجاري </th>
+        <th>الشهر </th>
+        <th>السنة</th>
+        <th>العنوان الوطني لسكن المستأجر </th>
+        <th> الرقم الاضافي   </th>
+        <th>الرمز البريدي  </th>
+        <th>الحي </th>
+        <th> اسم الشارع</th>
+        
+      </tr>
+    </thead>
+    <tbody id="data5"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المستأجر</h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+            <th>   رقم هوية المستأجر </th>
+            <th>تاريخ الميلاد(ميلاديا) </th>
+            <th>الشهر </th>
+            <th>السنة</th>
+            <th>تاريخ الميلاد(هجريا)</th>
+            <th>الشهر </th>
+            <th>السنة</th>
+            <th>البريد الالكتروني</th>
+            <th>رقم الجوال </th>
+        </tr>
+      </thead>
+      <tbody id="data6"></tbody>
+    </table>
+  </div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">في حالة وجود وكيل شرعي للمستأجر أو المنشأة </h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم الوكالة    </th>
+        <th> تاريخ الوكالة </th>
+        <th>  الشهر</th>
+        <th> السنة  </th>
+        <th> رقم الجوال  </th>
+        <th> رقم الهوية  </th>
+        <th>تاريخ الميلاد </th>
+        <th>  الشهر</th>
+        <th> السنة  </th>
+        <th>البريد الإلكتروني </th>
+      </tr>
+    </thead>
+    <tbody id="data7"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">مؤسسة غير ربحية   </h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم المؤسسة   </th>
+        <th>اسم المؤسسة </th>
+       
+
+      </tr>
+    </thead>
+    <tbody id="data8"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>  رقم الوحدة </th>
+        <th>  نوع الوحدة  </th>
+        <th> موقع الوحدة </th>
+        <th>    مساحة الوحدة </th>
+        <th>الواجهة الأمامية</th>
+        <th>اتجاه الواجهة الأمامية</th>
+        <th>رقم الدور</th>
+        <th>ميزانين</th>
+        <th>التشطيب</th>
+       
+      </tr>
+    </thead>
+    <tbody id="data9"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+         
+            <th>طول اللوحة الدعائية</th>
+            <th>عرض اللوحة الدعائية</th>
+            <th>موقع اللوحة الدعائية</th>
+            <th>   يوجد مكيفات </th>
+            <th>عدد المكيفات  </th>
+            <th> مركزي </th>
+            <th>سبليت   </th>
+            <th>شباك </th>
+        </tr>
+      </thead>
+      <tbody id="data10"></tbody>
+    </table>
+  </div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th> يوجد خزائن مطبخ </th>
+        <th> يوجد أثاث   </th>
+        <th> رقم عداد الكهرباء </th>
+        <th>القراءة الحالية للعداد   </th>
+        <th>رقم عداد الماء </th>
+        <th> القراءة الحالية للعداد  </th>
+        <th>الخدمات العامة </th>
+        <th>رسوم الخدمات العامة    </th>
+      </tr>
+    </thead>
+    <tbody id="data11"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+          
+            <th>قيمة الايجار  </th>
+            <th>  قيمة التأمين </th>
+            <th> سداد الدفعات   </th>
+            <th>مدة العقد     </th>
+            <th>تاريخ بداية العقد</th>
+            <th>الشهر   </th>
+            <th>السنة </th>
+            <th> ملاحظات    </th>
+        </tr>
+      </thead>
+      <tbody id="data12"></tbody>
+    </table>
+  </div>
+<div class="formData">
+    <div class="dataTop">
+        <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">الصلاحيات  </h1>
+    </div>
+    <div class="dataBottom">
+        <div class="container">
+        <div class="dataForm" id="dataForm">
+            <table class="table-bordered table" border="1" cellpadding="0">
+                <tr>
+                    <td>م</td>
+                    <td>الصلاحية</td>
+                    <td>الاختيار</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>هل يحق للمستأجر تأجير الوحدة الإيجارية ؟</td>
+                    <td id="q1"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>هل يحق للمستأجر التنازل عن العقد للغير (التقبيل) بعد موافقة المؤجر؟</td>
+                    <td id="q2">
+                      
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>هل يحق للمستأجر تأجير جزء من مساحة الوحدة الايجارية للغير بعد موافقة المؤجر؟</td>
+                    <td id="q3">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>هل يحق للمستأجر القيام باعمال الديكور أو اللوحات أو الواجهات أو الأحمال الكهربائية أو الأعمال الانشائية التي لا تحدث تغييرات اساسية على العقار ؟</td>
+                    <td id="q4">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>هل يحق للمستأجر مراجعة الجهات الحكومية والمعنية لاصدار رخصة المحل وغيرها؟</td>
+                    <td id="q5">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>هل يحق للمستأجر تغير الوحدة الايجارية سواء بالزيادة أو النقصان أو التعديل ؟</td>
+                    <td id="q6">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>هل يحق للمستأجر تعديل النشاط التجاري بعد سريان العقد ؟</td>
+                    <td id="q7">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>هل يحق للمستأجر التأجير من الباطن ؟</td>
+                    <td id="q8">
+                        
+                    </td>
+                </tr>
+            </table><br>
+
+            <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">الالتزامات المتبادلة</h1>
+            <table class="table-bordered table" border="1" cellpadding="0">
+                <tr>
+                    <td>م</td>
+                    <td>الالتزام (الرجاء الاختيار بوضع كلمة نعم للالتزام للإختيار بين المؤجر أو المستأجر)</td>
+                    <td>المؤجر</td>
+                    <td>المستأجر</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>الإلتزام بما قد يفرض على الوحدات من اي رسوم خدمات تفرض من قبل الجهات المختصة ؟</td>
+                    <td id="q9">
+                       
+                       
+                    </td>
+                    <td id="q10">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>الإلتزام بتوفير الإشتراطات الإساسية للجهات الحكومية والرسمية فيما يخص اصدار رخصة المحل ؟</td>
+                    <td id="q11">
+                       
+                    </td>
+                    <td id="q12">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>الإلتزام بدفع فواتير الكهرباء والماء والغاز والخدمات الآخرى أو دفع مبلغ مقطوع للوحدات الإيجارية الموصوفة خلال فترة العقد ؟ </td>
+                    <td id="q13">
+                      
+                    </td>
+                    <td id="q14">
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>يلتزم المؤجر أو المستأجر بدفع ما نسبته 20% من القيمة الإيجارية المتبقية من عقد الإيجار الساري في حال رغبة احد الطرفين في انهاء التعاقد من خلال لإشعار بذلك عبر وسائل الإخطار الواردة في المادة الخامسة عشر وموافقة الطرف الأخر </td>
+                    <td id="q15">
+                        
+                    </td>
+                    <td id="q16">
+                        
+                    </td>
+                </tr><br>
+            </table><br><br>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="formData">
+    <div class="dataTop">
+        <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">الإلتزامات الإضافية  </h1>
+    </div>
+    <div class="dataBottom">
+        <div class="container">
+        <div class="dataForm" id="dataForm">
+            <table class="table table-bordered" border="1" cellpadding="0">
+                <tr>
+                    <td>م</td>
+                    <td>الإلتزام(الرجاء الاختيار بنعم حتى يتم اضافة لالتزام للعقد في حالة الرغبة)</td>
+                    <td>المؤجر</td>
+                    <td>المستأجر</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>يلتزم المستأجر بالغاء رخصة البلدية الخاصة بالوحدة الايجارية عند الانتهاء أو انهاء العقد ؟</td>
+                    <td></td>
+                    <td id="Q1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>يلتزم المستاجر بدفع قيمة الاجرة في المواعيد المتفق عليها ؟</td>
+                    <td ></td>
+                    <td id="Q2">
+                      
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>يلتزم المستأجر بالتقييد بمساحة ومواصفات اللوحة الخاصة بالوحدة الايجارية والمحددة في البند رقم (8) من هذا العقد </td>
+                    <td ></td>
+                    <td id="Q3">
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>يلتزم المؤجر باجراء الترميمات المستعجلة التي تكون ضرورية لحفظ الوحدات الايجارية و ما يتطلبه ذلك من فحوصات استباقية لازمة </td>
+                    <td id="Q4">
+                       
+                    </td>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>يلتزم المستأجر ان يفتتح ويباشر نشاطه التجاري خلال مدة لا تتجاوز ال 60 يوما من تاريخ العقد وفي حال انتهاء هذه المدة وعدم تجاوب المستأجر خلال 30 يوما يحق للمؤجر فسخ العقد من جهته دون الحاجة الى انذار او حكم قضائي مع المحافظة على حقوق المستاجر بباقي قيمة العقد المدفوع بعد خصم العربون والسعي وقيمة الايجار والمصاريف  الخدمات العامة من تاريخ بداية الايجار الى تاريخ الفسخ والاخلاء.</td>
+                    <td ></td>
+                    <td id="Q5">
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>يلتزم المستأجر بتسليم الوحدات الإيجارية  للمؤجر عند انتهاء مدة ايجار العقد </td>
+                    <td ></td>
+                    <td id="Q6">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>يلتزم المستأجر باستعمال الوحدات الإيجارية الإستعمال المعتاد له طبقا للأنظمة والأعراف والتقاليد في المملكة العربية السعودية وتحمل جميع الجزاءات التي قد تفرض عليه من الجهات المختصة  </td>
+                    <td ></td>
+                    <td id="Q7">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>يلتزم المستأجر بالمحافضة على الاجزاء والمرافق المشتركة التابعة للعقار المشتمل على الوحدات الايجارية مثل دورات المياه المشتركة و الأسطح ومخارج الطوارئ والمصاعد والسلالم والممرات وغيرها</td>
+                    <td ></td>
+                    <td id="Q8">
+                      
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>يلتزم المؤجر بمسؤوليته اثناء مدة الايجار عن اعمال صيانة العقار وهي الصيانة المتعلقة بما يؤثر على سلامة المبنى او ماكان سببه غير ظاهر حال الاستئجار وعن اصلاح اي خلل يؤثر في إستيفاء المنفعة المقصودة مثل : تهريب المياه داخل الحيطان او الاسقف ما لم يكن ذلك بسبب سوء الاستعمال بموجب تقرير الدفاع المدني او من تخوله الجهات الحكومية المعتمدة ،، هبوط في في الاسقف او التصدعات الجوهرية في البناء بموجب ما ذكر من تقارير.</td>
+                    <td id="Q9">
+                    </td>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>يلتزم المستأجر بدفع جميع تكاليف الصيانة الاستهلاكية المعتادة المترتبة على الانتفاع بالوحدات الايجارية فيما عدا اعمال الصيانة المفصلة في المادة السابقة</td>
+                    <td ></td>
+                    <td id="Q10">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>في حال انتقال ملكية العقار او الوحدات الايجارية لمالك اخر فان عقد المستأجر باق ولا يفسخ الا بانتهاء مدته</td>
+                    <td id="Q11">
+                        
+                    </td>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>يلتزم المستأجر باخذ الاحتياطات اللازمة لمنع تعرض الوحدة الايجارية وكافة ملحقاتها والمتواجدين فيها سواء من تابعيه او عملائه او زائرية لاي اضرار كان بسبب من اسباب القوة القاهرة او الناتج عن انقطاع الكهرباء والمياه أو أجهزة التكييف أو أي خلل بالتجهيزات الميكانيكية أو الكهربائية أو أي عملية احتيال أو نصب أو سرقة وخلافه</td>
+                    <td ></td>
+                    <td id="Q12">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>يلتزم المستأجر بعدم اغلاق الوحدة الايجارية للجرد وخلافة لاكثر من (30) يوما متواصلا أو (60) يوما متقطعا طوال السنة الايجارية</td>
+                    <td ></td>
+                    <td id="Q13">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>يلتزم المستأجر بعدم إزالة التحسينات أو أعمال الديكور الثابتة والتي لا يمكن نقلها أو أي إضافة مقامة على الوحدات الإيجارية أو تسليم الوحدة بالحالة التي تسلمها ؟ (الرجاء الاختيار إبقاء او ازالة ).</td>
+                    <td ></td>
+                    <td id="Q14">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>يلتزم المستاجر بالحصول على بوليصة تأمين شاملة تعاونية ( موافقة لأحكام الشريعة الإسلامية ) للوحدة الإيجارية وكافة الممتلكات والبضائع والديكور ضد جميع الأخطار وتسليم نسخة منها وتجديدها للمؤجر</td>
+                    <td ></td>
+                    <td id="Q15">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>يلتزم المستاجر بالمحافظة على جميع التجهيزات الميكانيكية والكهربائية ومراعاة الأحمال الكهربائية في المجمع وغيرها من التجهيزات التي وضعها الموجر في الوحدة الايجارية و العقار</td>
+                    <td ></td>
+                    <td id="Q16">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td> يلتزم المستأجر بتزويد المؤجر بما يثبت تسجيل العلامة التجارية او حقة او تخويلة بيع منتجات العلامة التجارية للاسم التجاري للمستخدم</td>
+                    <td ></td>
+                    <td id="Q17">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>يلتزم المؤجر بتغيير محل الوحدة الإيجارية في حال وجود ترميمات من شأنها أن توقف عمل الوحدة الإيجارية جزئيا أو كليا لمحل اخر داخل العقار بنفس مواصفات المحل المتعاقد عليه بعد موافقة المستأجر عبر وسائل الإخطار الواردة في المادة الخامسة عشر</td>
+                    <td id="Q18">
+                        
+                    </td>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>يلتزم المؤجر بدفع مبلغ ( ) أجرة يومية في حال تأخره في تسليم الوحدات الإيجارية للمستأجر بعد إكمال الإجراءات الرسمية للتعاقد المستوفية لجميع بيانات العقار الواردة في البند رقم ( 6 ) وبيانات الوحدة الإيجارية في البند رقم ( ۷ )</td>
+                    <td id="Q19">
+                        
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td >يلتزم المستأجر بدفع مبلغ ( ) أجرة يومية في حال تأخره في إفتتاح الوحدة الإيجارية بعد إكمال الإجراءات الرسمية للتعاقد واستيفاء جميع بيانات العقار الواردة في البند رقم ( 6 ) وبيانات الوحدة الإيجارية في البند رقم ( ۷ )</td>                                    <td></td>
+                    <td id="Q20">
+                        
+                    </td>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة هوية المالك  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image"></div>
+    </div>
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة هوية المستأجر  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image1"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة  صك الملكية  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image2"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">   صورة السجل التجاري</h1>
+    <div class="col-md-3" >
+      <div class="image d-flex gap-2 " id="image3"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">   صورة الوكالة الشرعية     </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image4"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;"> صورة هوية الوكيل الشرعي      </h1>
+  
+    <div class="col-md-3">
+      <div class="image  d-flex gap-2" id="image5"></div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<div id="pagination" class="mt-5">
+  <button id="prevButton" class="btn btn-info fs-5 fw-bold">السابق</button>
+  <span id="objectNumber" class="border-1 p-3 text-white fs-4 fw-bold"></span>
+  <button id="nextButton1" class="btn btn-info fs-5 fw-bold">التالي</button>
+</div>
+
+
+
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/dashboard-core.js"></script>
+    <script src="js/commericaldashboard.js"></script>
+</body>
+</html>

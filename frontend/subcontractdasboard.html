@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات العقد الموحد بالباطن   </title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="Assets/images/logo image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body style="background-color: #eee;">
+<header class="bg-dark text-white py-3 mb-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <a href="index.html" class="d-flex align-items-center gap-2 text-white text-decoration-none">
+            <img src="Assets/images/logo image.png" alt="شعار صرح الوليد" style="height: 40px; width: auto;">
+            <span class="fw-bold">لوحة التحكم</span>
+        </a>
+        <nav aria-label="أقسام لوحة التحكم">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="admin.html">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Contractdashboard.html">العقود السكنية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="commericaldashboard.html">العقود التجارية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="subcontractdasboard.html">عقود الباطن</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="messages.html">الرسائل</a></li>
+            </ul>
+        </nav>
+        <div class="d-flex align-items-center gap-3">
+            <span id="currentUser" class="small"></span>
+            <button type="button" id="logoutButton" class="btn btn-outline-light btn-sm">تسجيل الخروج</button>
+        </div>
+    </div>
+</header>
+<div class="container"><div id="dashboardStatus" hidden></div></div>
+
+    <div class="mt-5 w-75 m-auto">
+        <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات العقد </h1>
+        <table class="table text-center table-hover p-5" border="1">
+          <thead >
+            <tr class="table-active">
+              <th>رقم سجل العقد الأساسي  </th>
+              <th>  رقم سجل العقد</th>
+              <th> نوع العقد</th>
+              <th>تاريخ ابرام العقد</th>
+              <th>الشهر </th>
+              <th>السنة</th>
+              <th>مكان إبرام العقد</th>
+              <th>تاريخ بداية مدة الايجار</th>
+              <th>الشهر </th>
+              <th>السنة</th>
+              <th>تاريخ نهاية مدة الايجار </th>
+              <th>الشهر </th>
+              <th>السنة</th>
+            </tr>
+          </thead>
+          <tbody id="data1"></tbody>
+        </table>
+    </div>
+
+    <div class="mt-5 w-75 m-auto">
+      <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المؤجر </h1>
+      <table class="table text-center table-hover p-5" border="1">
+        <thead >
+          <tr class="table-active" >
+            <th>الاسم</th>
+            <th> الجنسية</th>
+            <th> رقم الهوية</th>
+            <th>نوع الهوية</th>
+            <th>رقم الجوال</th>
+            <th>البريد الإلكتروني</th>
+
+          </tr>
+        </thead>
+        <tbody id="data2"></tbody>
+      </table>
+  </div>
+  <div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المستأجر  </h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active" >
+          <th>الاسم</th>
+          <th> الجنسية</th>
+          <th> رقم الهوية</th>
+          <th>نوع الهوية</th>
+          <th>رقم الجوال</th>
+          <th>البريد الإلكتروني</th>
+
+        </tr>
+      </thead>
+      <tbody id="data3"></tbody>
+    </table>
+</div>
+  <div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المنشأة العقارية و الوسيط </h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+         <th>اسم المنشأة العقارية</th>
+         <th>عنوان المنشأة العقارية</th>
+         <th>رقم السجل التجاري</th>
+         <th>رقم الهاتف</th>
+         <th>اسم الوسيط</th>
+         <th>الجنسية</th>
+         <th>رقم الهوية</th>
+         <th>نوع الهوية</th>
+         <th>رقم الجوال</th>
+         <th>البريد الإلكتروني</th>
+        </tr>
+      </thead>
+      <tbody id="data4"></tbody>
+    </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;"> بيانات صكوك التملك </h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+         <th>رقم الصك  </th>
+         <th>جهة الإصدار  </th>
+         <th>تاريخ الاصدار</th>
+         <th>الشهر </th>
+         <th>السنة</th>
+         <th>مكان الإصدار </th>
+        </tr>
+      </thead>
+      <tbody id="data5"></tbody>
+    </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات العقار  </h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+          <th>العنوان الوطني   </th>
+          <th>نوع بناء العقار </th>
+          <th> نوع استخدام العقار </th>
+          <th>عدد الأدوار  </th>
+          <th>عدد الوحدات</th>
+          <th>عدد المصاعد</th>
+          <th>عدد المواقف</th>
+        </tr>
+      </thead>
+      <tbody id="data6"></tbody>
+    </table>
+  </div>
+  
+   
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم الوحدة  </th>
+        <th>نوع الوحدة</th>
+        <th>مؤثثة </th>
+        <th>  رقم الدور</th>
+        <th>حالة التأثيث</th>
+        <th>خزائن مطبخ مركبة</th>
+        <th>نوع الغرفة</th>
+        <th>العدد</th>
+       
+
+      </tr>
+    </thead>
+    <tbody id="data7"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>نوع التكييف</th>
+        <th>العدد</th>
+        <th> رقم عداد الكهرباء </th>
+        <th>القراءة الحالية للعداد   </th>
+        <th>رقم عداد الماء </th>
+        <th> القراءة الحالية للعداد  </th>
+        <th>رقم عداد الغاز     </th>
+        <th>القراءة الحالية للعداد  </th>
+      </tr>
+    </thead>
+    <tbody id="data8"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">البيانات المالية  </h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>أجرة السعي</th>
+        <th>مبلغ الضمان </th>
+        <th>الأجرة الشهرية للكهرباء</th>
+        <th>الأجرة الشهرية للغاز </th>
+        <th>الأجرة الشهرية للمياه</th>
+        <th>الأجرة الشهرية للمواقف</th>
+        <th>   القيمة الشهرية للإيجار    </th>
+      </tr>
+    </thead>
+    <tbody id="data9"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">البيانات المالية  </h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+          <th>عدد المواقف المستأجرة</th>
+          <th>دفعة الإيجار الدورية</th>
+          <th>دورة سداد الإيجار </th>
+          <th>دفعة الإيجار الأخيرة</th>
+          <th>  عدد دفعات الإيجار</th>
+          <th>   إجمالي قيمة العقد </th>
+        </tr>
+      </thead>
+      <tbody id="data10"></tbody>
+    </table>
+  </div>
+  <div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">جدول سداد الدفعات   </h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+          <th>الرقم المسلسل</th>
+          <th>تاريخ الاصدار ميلاديا</th>
+          <th>الشهر </th>
+          <th>السنة</th>
+          <th>تاريخ الاستحقاق ميلاديا</th>
+          <th>الشهر </th>
+          <th>السنة</th>
+          <th>تاريخ الاصدار هجريا</th>
+          <th>الشهر </th>
+          <th>السنة</th>
+          <th>تاريخ الاستحقاق هجريا</th>
+          <th>الشهر </th>
+          <th>السنة</th>
+          <th>القيمة</th>
+        </tr>
+      </thead>
+      <tbody id="data11"></tbody>
+    </table>
+  </div>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة هوية المالك  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image1"></div>
+    </div>
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة هوية المستأجر  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image2"></div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;"> صورة هوية الوكيل الشرعي      </h1>
+  
+    <div class="col-md-3">
+      <div class="image  d-flex gap-2" id="image3"></div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<div id="pagination" class="mt-5">
+  <button id="prevButton" class="btn btn-info fs-5 fw-bold">السابق</button>
+  <span id="objectNumber" class="border-1 p-3 text-white fs-4 fw-bold"></span>
+  <button id="nextButton1" class="btn btn-info fs-5 fw-bold">التالي</button>
+</div>
+
+
+
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/dashboard-core.js"></script>
+    <script src="js/subcontractdashboard.js"></script>
+</body>
+</html>

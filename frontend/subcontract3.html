@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عقد الباطن - الشروط المالية | صرح الوليد</title>
+    <meta name="description" content="الخطوة الرابعة من نموذج عقد الإيجار الموحد بالباطن.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="Assets/images/logo image.png">
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <!-- Start Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Assets/images/logo image.png" alt="logoImage">
+            </a>
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white active"  href="index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#about">من نحن</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contract">العقد الموحد</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#instruction">التسويق العقاري</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html#contact"> تواصل معانا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <button id="backToTopBtn" onclick="scrollToTop()">
+      <i class="fa-solid fa-up-long"></i>
+    </button>
+    <!-- End navbar -->
+    <!-- Start Data -->
+    <div class="formData">
+      <div class="dataTop">
+        <h1 class="text-center">نموذج العفد الموحد بالباطن </h1>
+      </div>
+      <div class="dataBottom">
+        <div class="container">
+          <div class="dataForm">
+            <form id="ownerForm">
+                <div class="row">
+                    <h3 class="mb-3 fw-bold">البيانات المالية   </h3>
+                    <div class="col-md-6">
+                    <label for="effortPrice" class="mb-2">أجرة السعي ( لا تدخل ضمن القيمة الإجمالية لعقد الإيجار)  :</label>
+                    <input
+                        type="number"
+                        id="effortPrice"
+                        name="effortPrice"
+                        class="form-control mb-2"
+                        placeholder="أجرة السعي"  
+                        required
+                    />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="guaranteePrice" class="mb-2">مبلغ الضمان ( لا تدخل ضمن القيمة الإجمالية لعقد الإيجار)  :</label>
+                        <input
+                            type="number"
+                            id="guaranteePrice"
+                            name="guaranteePrice"
+                            class="form-control mb-2"
+                            placeholder="مبلغ الضمان  "
+                            required
+                        />
+                        </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                    <label for="elecMonthlyPrice" class="mb-2">الأجرة الشهرية للكهرباء  : </label>
+                    <input
+                        type="number"
+                        id="elecMonthlyPrice"
+                        name="elecMonthlyPrice"
+                        class="form-control mb-2"
+                        placeholder=" الأجرة الشهرية للكهرباء  "
+                        required
+                    />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="gasMonthlyPrice" class="mb-2">الأجرة الشهرية للغاز : </label>
+                        <input
+                            type="number"
+                            id="gasMonthlyPrice"
+                            name="gasMonthlyPrice"
+                            class="form-control mb-2"
+                            placeholder=" الأجرة الشهرية للغاز    "
+                            required
+                        />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="waterMonthlyPrice" class="mb-2">الأجرة الشهرية للمياه    : </label>
+                        <input
+                            type="number"
+                            id="waterMonthlyPrice"
+                            name="waterMonthlyPrice"
+                            class="form-control mb-2"
+                            placeholder=" الأجرة الشهرية للمياه    "
+                            required
+                        />
+                    </div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="mowafqMonthlyPrice" class="mb-2">الأجرة الشهرية للمواقف : </label>
+                    <input
+                        type="number"
+                        id="mowafqMonthlyPrice"
+                        name="mowafqMonthlyPrice"
+                        class="form-control mb-2"
+                        placeholder="الأجرة الشهرية للموافق   "
+                        required
+                    />
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="MonthlyPrice" class="mb-2">القيمة الشهرية للإيجار    : </label>
+                    <input
+                        type="number"
+                        id="MonthlyPrice"
+                        name="MonthlyPrice"
+                        class="form-control mb-2"
+                        placeholder="القيمة الشهرية للإيجار      "
+                        required
+                    />
+
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="mawaqefRentNum" class="mb-2">عدد المواقف المستأجرة  : </label>
+                        <input
+                            type="number"
+                            id="mawaqefRentNum"
+                            name="mawaqefRentNum"
+                            class="form-control mb-2"
+                            placeholder="عدد المواقف المستأجرة     "
+                            required
+                        />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="periodicRentPayment" class="mb-2">دفعة الإيجار الدورية:  </label>
+                        <input
+                            type="number"
+                            id="periodicRentPayment"
+                            name="periodicRentPayment"
+                            class="form-control mb-2"
+                            placeholder="   دفعة الإيجار الدورية "
+                            required
+                        />
+                    </div>
+                </div>
+
+             
+
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="rentPaymentCycle" class="mb-2"
+                    >دورة سداد الإيجار  :
+                  </label>
+                  <input
+                    type="text"
+                    id="rentPaymentCycle"
+                    name="rentPaymentCycle"
+                    class="form-control mb-2"
+                    placeholder="  دورة سداد الإيجار   "
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="lastRentPayment" class="mb-2"
+                    >دفعة الإيجار الأخيرة:  
+                  </label>
+                  <input
+                    type="text"
+                    id="lastRentPayment"
+                    name="lastRentPayment"
+                    class="form-control mb-2"
+                    placeholder=" دفعة الإيجار الأخيرة     "
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="rentCycleNum" class="mb-2"
+                    >عدد دفعات الإيجار   :
+                  </label>
+                  <input
+                    type="text"
+                    id="rentCycleNum"
+                    name="rentCycleNum"
+                    class="form-control mb-2"
+                    placeholder=" عدد دفعات الإيجار :"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="totalContract" class="mb-2"
+                    >  إجمالي قيمة العقد:</label
+                  >
+                  <input
+                    type="number"
+                    id="totalContract"
+                    name="totalContract"
+                    class="form-control mb-2"
+                    placeholder=" إجمالي قيمة العقد "
+                    required
+                  />
+                </div>
+              </div>
+            <div class="row">
+                <h3 class="mb-3 fw-bold">جدول سداد الدفعات </h3>
+                <div class="col-md-12">
+                    <label for="serialNumber" class="mb-2"
+                    >    الرقم المسلسل:</label
+                  >
+                  <input
+                    type="text"
+                    id="serialNumber"
+                    name="serialNumber"
+                    class="form-control mb-2"
+                    placeholder=" الرقم المسلسل :   "
+                    required
+                  />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="serialDateDay" class="mb-2">تاريخ الاصدار ميلاديا:</label>
+                    <select id="serialDateDay" name="serialDateDay" class="form-control mb-2" required>
+                        <option value="">اختر اليوم</option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateMonth" class="mb-2">الشهر:</label>
+                    <select id="serialDateMonth" name="serialDateMonth" class="form-control mb-2" required>
+                        <option value="">اختر الشهر</option>
+                        <script>
+                            for (let i = 1; i <= 12; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateYear" class="mb-2">السنة:</label>
+                    <select id="serialDateYear" name="serialDateYear" class="form-control mb-2" required>
+                        <option value="">اختر السنة</option>
+                        <script>
+                            const currentyear = new Date().getFullYear();
+                            for (let i = 1900; i <= currentyear; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="serialDateEndDay" class="mb-2">تاريخ الاستحقاق ميلاديا:</label>
+                    <select id="serialDateEndDay" name="serialDateEndDay" class="form-control mb-2" required>
+                        <option value="">اختر اليوم</option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateEndMonth" class="mb-2">الشهر:</label>
+                    <select id="serialDateEndMonth" name="serialDateEndMonth" class="form-control mb-2" required>
+                        <option value="">اختر الشهر</option>
+                        <script>
+                            for (let i = 1; i <= 12; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateEndYear" class="mb-2">السنة:</label>
+                    <select id="serialDateEndYear" name="serialDateEndYear" class="form-control mb-2" required>
+                        <option value="">اختر السنة</option>
+                        <script>
+                            const currentyearr = new Date().getFullYear();
+                            for (let i = 1900; i <= currentyearr; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="serialDateHJDay" class="mb-2">تاريخ الاصدار هجريا:</label>
+                    <select id="serialDateHJDay" name="serialDateHJDay" class="form-control mb-2" required>
+                        <option value="">اختر اليوم</option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateHJMonth" class="mb-2">الشهر:</label>
+                    <select id="serialDateHJMonth" name="serialDateHJMonth" class="form-control mb-2" required>
+                        <option value="">اختر الشهر</option>
+                        <script>
+                            const hijriMonths = [
+                                "محرم", "صفر", "ربيع الأول", "ربيع الآخر", 
+                                "جمادى الأولى", "جمادى الآخرة", "رجب", "شعبان", 
+                                "رمضان", "شوال", "ذو القعدة", "ذو الحجة"
+                            ];
+        
+                            hijriMonths.forEach((month, index) => {
+                                document.write(`<option value="${index + 1}">${month}</option>`);
+                            });
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateHJYear" class="mb-2">السنة:</label>
+                    <select id="serialDateHJYear" name="serialDateHJYear" class="form-control mb-2" required>
+                        <option value="">اختر السنة</option>
+                        <script>
+                            const year = new Date().getFullYear();
+                            for (let i = 1900; i <= year; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+            </div>
+
+
+          
+
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="serialDateEndHJDay" class="mb-2">تاريخ الاستحقاق هجريا:</label>
+                    <select id="serialDateEndHJDay" name="serialDateEndHJDay" class="form-control mb-2" required>
+                        <option value="">اختر اليوم</option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateEndHJMonth" class="mb-2">الشهر:</label>
+                    <select id="serialDateEndHJMonth" name="serialDateEndHJMonth" class="form-control mb-2" required>
+                        <option value="">اختر الشهر</option>
+                        <script>
+                            const hijriMonthss = [
+                                "محرم", "صفر", "ربيع الأول", "ربيع الآخر", 
+                                "جمادى الأولى", "جمادى الآخرة", "رجب", "شعبان", 
+                                "رمضان", "شوال", "ذو القعدة", "ذو الحجة"
+                            ];
+        
+                            hijriMonthss.forEach((month, index) => {
+                                document.write(`<option value="${index + 1}">${month}</option>`);
+                            });
+                        </script>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="serialDateEndHJYear" class="mb-2">السنة:</label>
+                    <select id="serialDateEndHJYear" name="serialDateEndHJYear" class="form-control mb-2" required>
+                        <option value="">اختر السنة</option>
+                        <script>
+                            const yearr = new Date().getFullYear();
+                            for (let i = 1900; i <= yearr; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+            </div>
+
+
+          
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="serialValue" class="mb-2"
+                    >    القيمة :</label
+                  >
+                  <input
+                    type="number"
+                    id="serialValue"
+                    name="serialValue"
+                    class="form-control mb-2"
+                    placeholder="القيمة  :   "
+                    required
+                  />
+
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <button
+                    type="submit"
+                    class="btn btn-primary mt-3 text-white border-0"
+                  >
+                    التالي
+                  </button>
+                  <button
+                    class="btn d-block m-auto mt-2 text-white"
+                    type="submit"
+                  >
+                    <a href="subcontract2.html">الرجوع</a>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Data  -->
+    <!-- Start Footer  -->
+    <div class="footer">
+        <div class="container">
+            <div class="info d-flex justify-content-center align-items-center g-5 ">
+                <div class="logo m-0">
+                    <img src="Assets/images/logo image.png" alt="logoImage">
+                </div>
+                <div class="data">
+                    <h2 class="text-white m-0 fw-bold">تواصل معنا</h2>
+                    <div class="icon d-flex gap-3 mt-3">
+                        <a href="https://wa.me/+966559969664" class="text-white"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/sarh_alwaleed?igsh=ZmpkaXMxdXl6Nmc%3D&utm_source=qr" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.threads.net/@sarh_alwaleed?xmt=AQGzQYYwrqSEl9rpA-j7g7T214IaaPg8GYN-mJGHjZrkhIA" class="text-white"><i class="fa-brands fa-threads"></i></a>
+                        <a href="https://x.com/sarh_alwaleed" class="text-white"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://snapchat.com/t/EJoI8s0J" class="text-white"><i class="fa-brands fa-snapchat"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="fs-6 text-white fw-bold text-center"  ><span id="footing">2024 &copy; صرح الوليد للخدمات العقاريه | حقوق النشر محفوظه لدي   </span> <a href="https://wa.me/+966548720537" class="fw-bold" style="color:  #fbde04;">IT.RENADMADI</a><i class="fa-brands fa-gratipay fa-beat-fade mx-2 fs-5 text-white"></i></p> 
+
+        </div>
+     </div>
+    <!-- End Footer -->
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/subcontract3.js"></script>
+  </body>
+</html>

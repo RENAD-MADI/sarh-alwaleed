@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات العقد السكني   </title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="Assets/images/logo image.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body style="background-color: #eee;">
+<header class="bg-dark text-white py-3 mb-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <a href="index.html" class="d-flex align-items-center gap-2 text-white text-decoration-none">
+            <img src="Assets/images/logo image.png" alt="شعار صرح الوليد" style="height: 40px; width: auto;">
+            <span class="fw-bold">لوحة التحكم</span>
+        </a>
+        <nav aria-label="أقسام لوحة التحكم">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="admin.html">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Contractdashboard.html">العقود السكنية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="commericaldashboard.html">العقود التجارية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="subcontractdasboard.html">عقود الباطن</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="messages.html">الرسائل</a></li>
+            </ul>
+        </nav>
+        <div class="d-flex align-items-center gap-3">
+            <span id="currentUser" class="small"></span>
+            <button type="button" id="logoutButton" class="btn btn-outline-light btn-sm">تسجيل الخروج</button>
+        </div>
+    </div>
+</header>
+<div class="container"><div id="dashboardStatus" hidden></div></div>
+
+    <div class="mt-5 w-75 m-auto">
+        <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المالك</h1>
+        <table class="table text-center table-hover p-5" border="1">
+          <thead >
+            <tr class="table-active">
+              <th>اسم المالك </th>
+              <th> رقم الهوية</th>
+              <th>تاريخ الميلاد</th>
+              <th>الشهر </th>
+              <th>السنة</th>
+              <th>رقم الجوال</th>
+              <th>البريد الالكتروني</th>
+              <th> اسم البنك</th>
+              <th> رقم الايبان </th>
+              <th> العنوان الوطني  </th>
+
+
+            </tr>
+          </thead>
+          <tbody id="data1"></tbody>
+        </table>
+    </div>
+
+    <div class="mt-5 w-75 m-auto">
+      <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المالك</h1>
+      <table class="table text-center table-hover p-5" border="1">
+        <thead >
+          <tr class="table-active" >
+            <th>الرمز البريدي  </th>
+            <th> الرمز الإضافي</th>
+            <th>الحي </th>
+            <th> اسم الشارع</th>
+            <th>رقم الصك</th>
+            <th> تاريخ الصك</th>
+            <th>الشهر </th>
+            <th> السنة</th>
+            <th> عدد أدوار المبني </th>
+            <th> عدد الشقق </th>
+          </tr>
+        </thead>
+        <tbody id="data2"></tbody>
+      </table>
+  </div>
+  <div class="mt-5 w-75 m-auto">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المالك</h1>
+    <table class="table text-center table-hover p-5" border="1">
+      <thead >
+        <tr class="table-active">
+          <th>عدد المواقف   </th>
+          <th> عدد المصاعد</th>
+          <th>اسم العقار </th>
+          <th> تاريخ الانشاء </th>
+          <th>الشهر </th>
+          <th> السنة </th>
+        </tr>
+      </thead>
+      <tbody id="data3"></tbody>
+    </table>
+</div>
+
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">في حالة وجود وكيل شرعي </h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم الوكالة    </th>
+        <th> تاريخها </th>
+        <th> اسم الوكيل </th>
+        <th> رقم الجوال  </th>
+        <th>تاريخ الميلاد </th>
+        <th>  الشهر</th>
+        <th> السنة  </th>
+        <th>البريد الإلكتروني </th>
+      </tr>
+    </thead>
+    <tbody id="data4"></tbody>
+  </table>
+</div>
+
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات المستأجر</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>اسم المستأجر </th>
+        <th>رقم الجوال</th>
+        <th> رقم الهوية</th>
+        <th>البريد الالكتروني</th>
+        <th>تاريخ الميلاد(ميلاديا) </th>
+        <th>الشهر </th>
+        <th>السنة</th>
+        <th>تاريخ الميلاد(هجريا)</th>
+        <th>الشهر </th>
+        <th>السنة</th>
+      </tr>
+    </thead>
+    <tbody id="data5"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">في حالة وجود وكيل شرعي </h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم الوكالة    </th>
+        <th> تاريخها </th>
+        <th> اسم الوكيل </th>
+        <th> رقم الجوال  </th>
+        <th>تاريخ الميلاد </th>
+        <th>  الشهر</th>
+        <th> السنة  </th>
+        <th>البريد الإلكتروني </th>
+      </tr>
+    </thead>
+    <tbody id="data9"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم الوحدة  </th>
+        <th>الدور </th>
+        <th> عدد غرف النوم </th>
+        <th>عدد مجلس </th>
+        <th> عدد صالة</th>
+        <th>عدد غرفة خادمة </th>
+        <th>عدد مخزن</th>
+        <th> عدد مطبخ</th>
+        <th>عدد دورة المياه </th>
+        <th>عدد فناء أو حوش</th>
+        <th>  نوع الوحدة</th>
+        <th>   نوع الوحدة (اختيار تاني)</th>
+
+      </tr>
+    </thead>
+    <tbody id="data6"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th> يوجد أثاث   </th>
+        <th> يوجد دولاب مطبخ </th>
+        <th>   يوجد مكيفات </th>
+        <th>عدد المكيفات  </th>
+        <th> مركزي </th>
+        <th>سبليت   </th>
+        <th>شباك </th>
+        <th> رقم عداد الكهرباء </th>
+        <th>القراءة الحالية للعداد   </th>
+        <th>رقم عداد الماء </th>
+        <th> القراءة الحالية للعداد  </th>
+      </tr>
+    </thead>
+    <tbody id="data7"></tbody>
+  </table>
+</div>
+<div class="mt-5 w-75 m-auto">
+  <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">بيانات الوحدة الإيجارية</h1>
+  <table class="table text-center table-hover p-5" border="1">
+    <thead >
+      <tr class="table-active">
+        <th>رقم عداد الغاز     </th>
+        <th>القراءة الحالية للعداد  </th>
+        <th>   قيمة الايجار  </th>
+        <th>  قيمة التأمين </th>
+        <th> تاريخ بداية العقد </th>
+        <th>الشهر   </th>
+        <th>السنة </th>
+        <th> مدة السداد</th>
+        <th>مدة العقد     </th>
+        <th>يجدد تلقائيا   </th>
+        <th> ملاحظات    </th>
+      </tr>
+    </thead>
+    <tbody id="data8"></tbody>
+  </table>
+</div>
+<div class="container">
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة هوية المالك  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image"></div>
+    </div>
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة هوية المستأجر  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image1"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة  صك الملكية  </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image2"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">صورة كرت العائلية أو المرافقين     </h1>
+    <div class="col-md-3" >
+      <div class="image d-flex gap-2 " id="image3"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;">   صورة الوكالة الشرعية     </h1>
+  
+    <div class="col-md-3">
+      <div class="image d-flex gap-2" id="image4"></div>
+    </div>
+
+  </div>
+  <div class="row">
+    <h1 class="text-center fw-bold mb-2" style="color: #42cb87;"> صورة هوية الوكيل الشرعي      </h1>
+  
+    <div class="col-md-3">
+      <div class="image  d-flex gap-2" id="image5"></div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<div id="pagination" class="mt-5">
+  <button id="prevButton" class="btn btn-info fs-5 fw-bold">السابق</button>
+  <span id="objectNumber" class="border-1 p-3 text-white fs-4 fw-bold"></span>
+  <button id="nextButton1" class="btn btn-info fs-5 fw-bold">التالي</button>
+</div>
+
+
+
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/dashboard-core.js"></script>
+    <script src="js/Contract.js"></script>
+</body>
+</html>

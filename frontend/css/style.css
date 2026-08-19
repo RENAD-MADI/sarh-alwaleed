@@ -1,0 +1,789 @@
+@import url(https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap);
+/* start Rules */
+body,li,ul {
+    padding:0;
+    margin:0
+}
+body,button,li,p,ul {
+    margin:0
+}
+* {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box
+}
+html {
+    scroll-behavior:smooth
+}
+body {
+    line-height:1.8;
+    font-family:Cairo,sans-serif;
+}
+/* animate.css entrances (slideInLeft, backInDown, fadeInRight...) translate
+   elements outside the viewport, which widens the scrollable area and leaves
+   the page scrolling sideways on mobile. This is the fix animate.css documents. */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+:root {
+    --transition:0.4s;
+    --main-color:#eec996;
+    --second-color:#303e49;
+    --third-color:#42cb87;
+    --last-color:#444f6b;
+    --dark-color:#13141b;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.last-color {
+    color:var(--last-color)
+}
+.bg-last-color {
+    background-color:var(--last-color)
+}
+.dark-color {
+    color:var(--dark-color)
+}
+.bg-dark-color {
+    background-color:var(--dark-color)
+}
+/* End Rules */
+
+
+/* Start Navbar */
+.active{
+    color: var(--third-color) !important;
+}
+.navbar{
+    background-color:var(--second-color);
+}
+.navbar .navbar-brand img{
+    width: 300px ;
+    height: 100px;
+}
+.navbar .nav-item{
+    transition: all 0.4s;
+}
+.navbar .nav-item:hover a{
+    color: #42cb87 !important;
+}
+.navbar .nav-item a{
+    font-size: 18px;
+    font-weight: bold;
+}
+@media(max-width:767px){
+    .navbar .navbar-brand img{
+        width: 240px ;
+        height: 100px;
+    }
+}
+/* Start Up BTN */
+#backToTopBtn{
+    display: none; 
+    position: fixed;
+    bottom: 60px;
+    left: 30px;
+    z-index: 99;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 6px;
+    transition: var(--transition);
+    opacity: 0.7;
+}
+#backToTopBtn:hover {
+    color: var(--second-color);
+    opacity: 1;
+}
+
+.nav-bullets {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    z-index: 1000;
+}
+
+.nav-bullets .bullet {
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--main-color);
+    margin: 20px auto;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-bullets .bullet .tooltip {
+    background-color: var(--main-color);
+    width: 120px;
+    font-size: 18px;
+    color: #FFF;
+    padding: 8px 10px;
+    position: absolute;
+    right: 32px;
+    top: -10px;
+    text-align: center;
+    cursor: default;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.nav-bullets .bullet .tooltip:before {
+    content: '';
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent transparent var(--main-color);
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: -19px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-bullets .bullet:hover .tooltip {
+    opacity: 1;
+}
+
+/* End Navbar */
+/* Start Home */
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+}
+.home .image {
+    background-image: url('../Assets/images/logo\ data.jpg');
+    background-size: cover;
+    background-position: center ;
+    background-repeat: no-repeat; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.home .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0,0.6);
+}
+.home .container .text h1{
+    font-size: 40px;
+}
+.home .container .text h2{
+    font-size: 35px;
+}
+/* End Home */
+
+/* Start About Us */
+.about{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.about .container h1{
+    font-weight: bold;
+    font-size: 35px;
+    color: var(--third-color);
+    position: relative;
+}
+.about .container h1::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    background-color: var(--last-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -18px;
+}
+.about .container h1:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 1.5px;
+    background-color: var(--last-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -22px;
+}
+.about .container  p{
+    color: var(--last-color);
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 500;
+    border-right: 3px solid var(--third-color);
+    border-radius: 6px;
+    margin-top: 50px;
+    padding: 6px 20px 6px 0;
+}
+.about .container  .image img{
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin-top: 50px;
+    padding: 6px 50px 6px 0;
+}
+@media(max-width:991px){
+    .about .container  .image img{
+        margin: auto !important;
+        padding: 6px 0px 6px 0;
+    }
+}
+
+/* End About Us *
+
+/*Start Unified contract  */
+.contract {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.contract .container .txt h1{
+    font-size: 35px;
+    color: var(--third-color);
+    position: relative;
+}
+.contract .container .txt h1::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: var(--last-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -18px;
+}
+.contract .container .txt  h1:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 1.5px;
+    background-color: var(--last-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -22px;
+}
+.contract .container .big {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 50px 30px;
+}
+.contract .container .big  h1{
+    font-size: 35px;
+    color: var(--third-color);
+    position: relative;
+}
+.contract .container .big  h1::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -18px;
+}
+.contract .container .big  h1:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 1.5px;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -22px;
+}
+.contract .container .big .text p{
+    font-size: 20px;
+    max-width: 650px;
+    margin: auto;
+    line-height: 36px;
+    margin-top: 50px;
+}
+.contract .container .row .data .textt{
+    background: #fff none repeat scroll 0 0;
+    font-weight: 300;
+    margin-bottom: 50px;
+    margin-top: 45px;
+    padding: 40px 15px 30px;
+    position: relative;
+    text-align: center;
+    transition: all 0.3s ease-in-out 0s;
+    box-shadow: 0px 8px 30px -20px rgba(0, 0, 0, 0.5);
+}
+.contract .container .row .data .textt:hover {
+    border-bottom: 3px solid var(--third-color);
+}
+.contract .container .row .data .textt .icon{
+    background-color: #fff;
+    border-radius: 50%;
+    height: 60px;
+    left: 0;
+    line-height: 80px;
+    margin: -42px auto 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    transition: all 0.4s;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contract .container .row .data .textt .icon i{
+    font-size: 20px;
+    color: var(--third-color);
+    transition: all 0.4s;
+}
+.contract .container .row .data .textt:hover .icon{
+    background-color: var(--third-color);
+}
+.contract .container .row .data .textt:hover .icon i{
+    color: #fff;
+}
+@media (min-width: 577px) and (max-width: 1268px) {
+    .contract .container .row .data .textt {
+        height: 250px;
+    }
+}
+.contract .container .row .box .head h3{
+    font-size: 20px;
+    color: var(--dark-color);
+}
+.contract .container .row .box .bttn button{
+    background-color: var(--third-color);
+}
+.contract .container .row .box .bttn a{
+    color: white;
+}
+.contract .container .content .heading h1{
+    font-size: 35px;
+    color: var(--third-color);
+    position: relative;
+    font-weight: bold;
+}
+.contract .container .content .heading h1::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: var(--dark-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -18px;
+}
+.contract .container .content .heading h1:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 1.5px;
+    background-color: var(--dark-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -22px;
+}
+.contract .container .content .row .bigData{
+    flex:1;
+    padding: 30px;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+}
+.contract .container .content .row {
+    margin-top: 70px !important;
+}
+.contract .container .content .row .bigData .icon i{
+    color: var(--third-color);
+    font-size: 30px;
+}
+.contract .container .content .row .bigData .info h3{
+    color: var(--second-color);
+    font-weight: 600;
+    margin-top: 10px;
+}
+.contract .container .content .row .bigData .info .para{
+    color: var(--second-color);
+}
+.contract .container .content .row .bigData .info button{
+    border: 1px solid var(--third-color); 
+    border-radius:10px !important;
+    transition: all 0.4s;
+    padding: 10px;
+
+}
+.contract .container .content .row .bigData .info button a{
+    color: var(--third-color) !important;
+    transition: all 0.4s;
+}
+.contract .container .content .row .bigData .info button:hover{
+    background-color: var(--third-color);
+}
+.contract .container .content .row .bigData .info button:hover a{
+    color: #fff !important;
+}
+.contract .container .content .row .bigData .info a{
+    color:#706b6b;
+}
+.contract .container .content .row .bigData .info .data{
+    color: #42cb87 !important;
+}
+/*End Unified contract  */
+/* start instruction */
+.instruction {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.instruction .container h1{
+    font-size: 35px;
+    color: var(--third-color);
+    position: relative;
+    font-weight: bold;
+}
+.instruction .container h1::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: var(--dark-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -18px;
+}
+.instruction .container h1:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 1.5px;
+    background-color: var(--dark-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -22px;
+}
+.instruction .container .big {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 50px 30px;
+}
+.instruction .container .row{
+    gap: 10px;
+}
+.instruction .container .row .data{
+    flex:1;
+    padding: 30px;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+}
+.instruction .container .videoo{
+    width: 500px;
+}
+.instruction .container .videoo video{
+    width: 100%;
+}
+.instruction .container .row h6{
+    margin: 15px 0;
+}
+.instruction .container .row h6 a{
+    text-align: center !important;
+    color: var(--dark-color);
+    font-weight: bold;
+    transition: all 0.4s;
+}
+.instruction .container .row .data:hover a{
+    color: var(--third-color); 
+
+}
+@media (max-width: 1120px) and (min-width: 767px) {
+    .instruction .container .videoo {
+        width: fit-content !important;
+    }
+}
+@media(max-width:767px){
+    .instruction .container .row{
+        flex-direction: column;
+    }
+    .instruction .container .videoo{
+        width: fit-content !important;
+    }
+}
+/* End instruction */
+
+/* Start Contact */
+.contact {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.contact .container .head h1{
+    font-size: 35px;
+    color: var(--third-color);
+    position: relative;
+    font-weight: bold;
+}
+.contact .container .head h1::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: var(--dark-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -18px;
+}
+.contact .container .head  h1:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 1.5px;
+    background-color: var(--dark-color);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -22px;
+}
+.contact .container .big{
+    gap: 100px !important;
+    margin-top: 50px;
+}
+.contact .container .big .one{
+    flex:1; 
+    padding: 30px;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+.contact .container .big .one .icon{
+    border: 1px solid var(--third-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.contact .container .big .one p{
+    font-weight: bold;
+}
+.contact .container .big .one i{
+    color: var(--third-color);
+}
+.contact .container .contactInfo{
+    background-color: var(--third-color);
+    padding: 20px;
+    border-radius: 5px;
+}
+.contact .container .contactInfo h1{
+    color: #fff;
+}
+.contact .container .contactInfo textarea{
+    resize: none;
+}
+.contact .container .contactInfo button{
+    border: 1px solid #eee;
+    transition: all 0.4s;
+}
+.contact .container .contactInfo button a{
+    transition: all 0.4s;
+}
+.contact .container .contactInfo button:hover{
+    background-color: #fff;
+}
+.contact .container .contactInfo button:hover a{
+    color: var(--third-color) !important;
+}
+@media(max-width:991px) {
+    .contact .container .contactInfo{
+        width: 100% !important;
+    }
+}
+@media(max-width:767px){
+    .contact .container .big{
+        display: flex;
+        flex-direction: column;
+        gap: 0 !important;
+    }
+    .contact .container .big .one{
+        width:200px;
+    }
+}
+/* End Contact */
+/* Start Footer */
+.footer{
+    background-color: var(--second-color);
+    padding: 20px 0;
+}
+.footer .container .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 100px;
+}
+.footer .container .logo img{
+    width: 150px;
+    height: 100px;
+}
+.footer .container .data i{
+    font-size: 20px;
+}
+@media(max-width:767px){
+    .footer .container span{
+        font-size: 14px !important;
+        font-weight: bold;
+    }
+    .footer .container .info{
+        flex-direction: column;
+        gap: 0;
+    }
+
+}
+/* End Footer */
+
+
+/* Start Residentialcontract */
+.formData .dataTop {
+    background-color: var(--third-color);
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    padding-top: 100px !important;
+    padding-bottom: 150px !important;
+}
+.formData  .dataTop h1{
+    font-size: 35px;
+    color: #fff;
+    position: relative;
+    font-weight: bold;
+}
+.formData .dataTop h1::before {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 2px;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -18px;
+}
+.formData .dataTop  h1:after {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 1.5px;
+    background-color:#fff;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -22px;
+}
+.formData  .dataBottom{
+    position: relative;
+    z-index: 2;
+    margin-top: -100px
+}
+.formData  .dataBottom .container .dataForm{
+    position: relative;
+    height: 100%;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 15px 60px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 15px 60px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 50px 30px;
+    margin-bottom: 50px;
+}
+.formData  .dataBottom .container .dataForm h3{
+    color: var(--dark-color);
+}
+.formData  .dataBottom .container .dataForm .row input{
+    background-color: #e6f2ef;
+}
+.formData  .dataBottom .container .dataForm .row select{
+    background-color: #e6f2ef;
+}
+.formData  .dataBottom .container .dataForm button{
+    background-color: var(--third-color);
+    padding: 15px 25px;
+    border-radius: 50px;
+}
+.formData  .dataBottom .container .dataForm button a{
+    color: #fff;
+}
+
+.formData  .dataBottom .container .dataForm .unitNotes{
+    /* display: inline-block;
+    max-width: 100%; */
+
+
+}
+
+.formData  .dataBottom .container .dataForm  textarea {
+    background-color: #e6f2ef !important;
+    resize: none !important;
+    height: 150px !important;
+    padding: 10px;
+
+}
+.formData  .dataBottom .container .dataForm .para1{
+    background-color: #e6f2ef;
+    padding: 20px 15px;
+    font-size: 22px;
+    
+}
+@media (max-width: 991px) {
+    .dataForm .row > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .formData  .dataBottom .container .dataForm .dataa{
+        flex-direction: column !important;
+    }
+    .formData  .dataBottom .container .dataForm .data1{
+        margin-top: 15px !important;
+    }
+    .formData  .dataBottom .container .dataForm .data1 button{
+        margin-top: 15px !important;
+    }
+}
+/* End Residentialcontract*/
+
+
+

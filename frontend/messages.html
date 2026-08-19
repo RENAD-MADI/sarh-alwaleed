@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <title>الرسائل</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="Assets/images/logo image.png">
+  </head>
+  <body  style="background-color: #eee;">
+<header class="bg-dark text-white py-3 mb-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <a href="index.html" class="d-flex align-items-center gap-2 text-white text-decoration-none">
+            <img src="Assets/images/logo image.png" alt="شعار صرح الوليد" style="height: 40px; width: auto;">
+            <span class="fw-bold">لوحة التحكم</span>
+        </a>
+        <nav aria-label="أقسام لوحة التحكم">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white" href="admin.html">الرئيسية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="Contractdashboard.html">العقود السكنية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="commericaldashboard.html">العقود التجارية</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="subcontractdasboard.html">عقود الباطن</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="messages.html">الرسائل</a></li>
+            </ul>
+        </nav>
+        <div class="d-flex align-items-center gap-3">
+            <span id="currentUser" class="small"></span>
+            <button type="button" id="logoutButton" class="btn btn-outline-light btn-sm">تسجيل الخروج</button>
+        </div>
+    </div>
+</header>
+<div class="container"><div id="dashboardStatus" hidden></div></div>
+
+    <div class="mt-5 w-75 m-auto">
+      <table class="table text-center table-hover p-5">
+        <caption class="text-end">الرسائل الواردة من نموذج التواصل</caption>
+        <thead>
+          <tr class="table-active">
+            <th scope="col">الاسم</th>
+            <th scope="col">رقم الجوال</th>
+            <th scope="col">البريد الإلكتروني</th>
+            <th scope="col">الموضوع</th>
+            <th scope="col">الرسالة</th>
+            <th scope="col">تاريخ الإرسال</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+          
+        </tbody>
+      </table>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/dashboard-core.js"></script>
+    <script src="js/messages.js"></script>
+  </body>
+</html>
